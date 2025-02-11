@@ -68,4 +68,21 @@ public class MyArrayListTest {
         assertEquals(40, list.get(3));
     }
 
+    @Test void testClear() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+
+        // Добавляем элементы
+        list.add(10);
+
+        // Проверяем размер после добавления
+        assertEquals(1, list.size());
+        assertFalse(list.isEmpty());
+
+        list.clear();
+
+        // Проверяем размер после очистки
+        assertEquals(0, list.size());
+        assertTrue(list.isEmpty());
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> list.get(0));
+    }
 }

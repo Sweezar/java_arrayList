@@ -31,6 +31,9 @@ public class MyArrayList<E> {
     }
 
     public E get(int index) {
+        if(index >= size_ || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         return (E)elements[index];
     }
 
@@ -58,6 +61,13 @@ public class MyArrayList<E> {
         }
         elements[index] = element;
         size_++;
+    }
+
+    public void clear() {
+        for(Object element : elements) {
+            element = null;
+        }
+        size_ = 0;
     }
 
     private void reallocate() {
