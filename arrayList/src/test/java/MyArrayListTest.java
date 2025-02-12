@@ -115,4 +115,38 @@ public class MyArrayListTest {
         assertTrue(list.contains(30));
         assertFalse(list.contains(15));
     }
+
+    @Test
+    public void testRemoveWithIndex() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+
+        // Добавляем элементы
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+        list.add(60);
+
+        // Удаляем элемент
+        list.remove(1);
+
+        assertEquals(list.get(1), 30);
+        assertEquals(list.size(), 5);
+
+        // Удаляем элемент с начала
+        list.remove(0);
+
+        assertEquals(list.get(0), 30);
+        assertEquals(list.size(), 4);
+
+        // Удаляем элемент с конца
+        list.remove(3) ;
+
+        assertEquals(list.size(), 3);
+
+        // Проверка не существующего индекса
+        assertThrows(IndexOutOfBoundsException.class, () -> list.remove(10));
+    }
+
 }

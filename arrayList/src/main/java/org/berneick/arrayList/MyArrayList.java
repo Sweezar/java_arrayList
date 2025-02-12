@@ -92,6 +92,24 @@ public class MyArrayList<E> implements Cloneable {
         return false;
     }
 
+    public E remove(int index) {
+        if(index < 0 || index >= size_) {
+            throw new IndexOutOfBoundsException();
+        }
+        E element = (E)elements[index];
+        if(index == size_ - 1) {
+            elements[index] = null;
+        }
+        for(int i = index + 1; i < size_; i++) {
+            elements[i - 1] = elements[i];
+        }
+
+        size_--;
+        elements[size_] = null;
+
+        return element;
+    }
+
     private void reallocate() {
         capacity_ = (int)(capacity_ * 1.5) + 1;
         Object[] newPlace = new Object[capacity_];
