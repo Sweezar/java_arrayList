@@ -110,6 +110,15 @@ public class MyArrayList<E> implements Cloneable {
         return element;
     }
 
+    public int indexOf(Object o) {
+        for(int i = 0; i < size_; i++) {
+            if(elements[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     private void reallocate() {
         capacity_ = (int)(capacity_ * 1.5) + 1;
         Object[] newPlace = new Object[capacity_];

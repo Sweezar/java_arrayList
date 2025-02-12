@@ -117,6 +117,20 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void testIndexOf() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+
+        // Добавляем элементы
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        assertEquals(list.indexOf(20), 1);
+        assertEquals(list.indexOf(10), 0);
+        assertEquals(list.indexOf(15), -1);
+    }
+
+    @Test
     public void testRemoveWithIndex() {
         MyArrayList<Integer> list = new MyArrayList<>();
 
