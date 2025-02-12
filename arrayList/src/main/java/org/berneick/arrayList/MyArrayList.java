@@ -39,6 +39,13 @@ public class MyArrayList<E> implements Cloneable {
         return (E)elements[index];
     }
 
+    public void set(int index, E element) {
+        if(index >= size_ || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        elements[index] = element;
+    }
+
     public void add(E element) {
         if(size_ == capacity_) {
             reallocate();

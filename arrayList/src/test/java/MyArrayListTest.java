@@ -69,6 +69,18 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void testSet() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+
+        // Добавляем элементы
+        list.add(10);
+        list.set(0, 15);
+
+        assertEquals(15, list.get(0));
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> list.set(10, 42));
+    }
+
+    @Test
     public void testClear() {
         MyArrayList<Integer> list = new MyArrayList<>();
 
