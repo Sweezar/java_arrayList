@@ -100,4 +100,19 @@ public class MyArrayListTest {
         assertFalse(copyOfList.isEmpty());
         assertTrue(list.isEmpty());
     }
+
+    @Test
+    public void testContains() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+
+        // Добавляем элементы
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        assertTrue(list.contains(10));
+        assertTrue(list.contains(20));
+        assertTrue(list.contains(30));
+        assertFalse(list.contains(15));
+    }
 }

@@ -83,6 +83,15 @@ public class MyArrayList<E> implements Cloneable {
         }
     }
 
+    public boolean contains(Object o) {
+        for (int i = 0; i < size_; i++) {
+            if(elements[i].equals(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void reallocate() {
         capacity_ = (int)(capacity_ * 1.5) + 1;
         Object[] newPlace = new Object[capacity_];
