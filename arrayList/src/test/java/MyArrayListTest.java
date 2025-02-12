@@ -68,7 +68,8 @@ public class MyArrayListTest {
         assertEquals(40, list.get(3));
     }
 
-    @Test void testClear() {
+    @Test
+    public void testClear() {
         MyArrayList<Integer> list = new MyArrayList<>();
 
         // Добавляем элементы
@@ -84,5 +85,19 @@ public class MyArrayListTest {
         assertEquals(0, list.size());
         assertTrue(list.isEmpty());
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> list.get(0));
+    }
+
+    @Test
+    public void testClone() {
+        MyArrayList<String> list = new MyArrayList<>();
+
+        list.add("Hello");
+
+        MyArrayList<String> copyOfList = (MyArrayList<String>) list.clone();
+        list.clear();
+
+        assertTrue(copyOfList.get(0).equals("Hello"));
+        assertFalse(copyOfList.isEmpty());
+        assertTrue(list.isEmpty());
     }
 }

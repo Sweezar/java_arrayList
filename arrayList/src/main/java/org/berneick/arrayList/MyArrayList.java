@@ -1,6 +1,8 @@
 package org.berneick.arrayList;
 
-public class MyArrayList<E> {
+import java.util.Arrays;
+
+public class MyArrayList<E> implements Cloneable {
     private Object[] elements;
     private int size_;
     private int capacity_;
@@ -68,6 +70,17 @@ public class MyArrayList<E> {
             element = null;
         }
         size_ = 0;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            MyArrayList cloned = (MyArrayList) super.clone();
+            cloned.elements = Arrays.copyOf(this.elements, this.elements.length);
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void reallocate() {
