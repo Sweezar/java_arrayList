@@ -163,4 +163,25 @@ public class MyArrayListTest {
         assertThrows(IndexOutOfBoundsException.class, () -> list.remove(10));
     }
 
+    @Test
+    public void testRemoveWithObject() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+
+        // Добавляем элементы
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+        list.add(60);
+
+        // Удаляем элемент
+        assertTrue(list.remove(Integer.valueOf(20)));
+        assertFalse(list.remove(Integer.valueOf(15)));
+
+        assertEquals(list.get(1), 30);
+        assertEquals(list.size(), 5);
+
+    }
+
 }

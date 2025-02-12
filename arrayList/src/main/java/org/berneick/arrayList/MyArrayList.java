@@ -110,6 +110,16 @@ public class MyArrayList<E> implements Cloneable {
         return element;
     }
 
+    public boolean remove(Object o) {
+        int index = this.indexOf(o);
+        if(index == -1) {
+            return false;
+        }
+
+        remove(index);
+        return true;
+    }
+
     public int indexOf(Object o) {
         for(int i = 0; i < size_; i++) {
             if(elements[i].equals(o)) {
